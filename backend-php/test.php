@@ -32,10 +32,12 @@
 
     // prendo array php e lo trasformo in file json cosi da leggerlo in vue 
     $jsonTodoList = json_encode($todoList);
+    // lo metto nel file todo.json 
     file_put_contents('todo.json', $jsonTodoList);
 
     // prendo i file json e li traduco in php 
     $jsonTodoList = file_get_contents("todo.json", true);
+    // e lo aggiungo alla todo list 
     $todoList = json_decode($jsonTodoList);
 
     // stampo a schermo l'array
