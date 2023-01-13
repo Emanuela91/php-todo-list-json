@@ -56,9 +56,9 @@ export default {
 <template>
   <div>
     <h1>TODO LIST</h1>
-    <!-- lista delle cose da fare, con ciclo per le varie voci -->
+    <!-- lista delle cose da fare, con ciclo per le varie voci, a cui assegno  -->
     <ul>
-      <li v-for="(todoElem, ind) in todoList" :key="ind">
+      <li v-for="(todoElem, ind) in todoList" :key="ind" :class="todoElem.completed === 'true' ? 'done' : ''">
         {{ todoElem.text }}
         {{ todoElem.completed }}
       </li>
@@ -73,7 +73,7 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-.done {
-  text-decoration: overline;
+li.done {
+  text-decoration: line-through;
 }
 </style>
