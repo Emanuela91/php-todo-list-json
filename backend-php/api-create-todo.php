@@ -1,6 +1,6 @@
 <?php
 // con questi due header faccio comunicare il lato server e la parte frontend, in localhost metto la porta dell progetto vue 
-header("Access-Control-Allow-Origin: http://localhost:5174");
+header("Access-Control-Allow-Origin: http://localhost:5173");
 header("Access-Control-Allow-Headers: X-Requested-With");
 
 // dice quali dati prendere 
@@ -24,5 +24,6 @@ $todoList[] = [
 $jsonTodoList = json_encode($todoList);
 // lo metto dentro al file json 
 file_put_contents('todo.json', $jsonTodoList);
+
 
 ?>

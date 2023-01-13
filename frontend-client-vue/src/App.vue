@@ -34,7 +34,7 @@ export default {
       // do un parametro con cui creo il collegamento al backend
       const params = {
         params: {
-          'newTodo': this.newTodo
+          'newTodo': this.newTodo,
         }
       };
       // faccio la chiamata al BE alla pagina che crea il nuovo task 
@@ -45,6 +45,7 @@ export default {
         }
         );
     },
+
   },
   mounted() {
     this.getAllData();
@@ -59,6 +60,7 @@ export default {
     <ul>
       <li v-for="(todoElem, ind) in todoList" :key="ind">
         {{ todoElem.text }}
+        {{ todoElem.completed }}
       </li>
     </ul>
     <!-- form per inserire nuovi task   -->
@@ -70,6 +72,8 @@ export default {
 
 </template>
 
-<style scoped>
-
+<style lang="scss" scoped>
+.done {
+  text-decoration: overline;
+}
 </style>
