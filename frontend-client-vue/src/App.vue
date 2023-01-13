@@ -26,7 +26,25 @@ export default {
           // console.log(data)
           this.todoList = data;
         });
-    }
+    },
+    // evento che crea il nuovo task e stampa in pagina
+    formSubmit(e) {
+      // evita che la pagina venga ricaricata
+      e.preventDefault();
+      // do un parametro con cui creo il collegamento al backend
+      const params = {
+        params: {
+          'newTodo': this.newTodo
+        }
+      };
+      // faccio la chiamata al BE alla pagina che crea il nuovo task 
+      axios.get(API_URL + "api-create-todo.php", params)
+        // invio tutto alla funzione getAllData
+        .then(() => {
+          this.getAllData();
+        }
+        );
+    },
   },
   mounted() {
     this.getAllData();

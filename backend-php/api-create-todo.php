@@ -6,7 +6,7 @@ header("Access-Control-Allow-Headers: X-Requested-With");
 // dice quali dati prendere 
 header('Content-Type: application/json');
 
-// prende il nuovo task 
+// prende il nuovo task da frontend: stesso nome del parametro nell'evento
 $newTodo = $_GET['newTodo'];
 
 // collegamento al file json 
