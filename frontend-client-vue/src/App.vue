@@ -5,6 +5,7 @@ const API_URL = "http://localhost/";
 
 
 export default {
+  name: "App",
   data() {
     // aggiunta di nuovi task dal form alla todo list
     return {
@@ -21,7 +22,8 @@ export default {
         .then(res => {
 
           const data = res.data;
-
+          // vedo gli array in console prima di creare il ciclo
+          // console.log(data)
           this.todoList = data;
         });
     }
@@ -35,9 +37,11 @@ export default {
 <template>
   <div>
     <h1>TODO LIST</h1>
-    <!-- lista delle cose da fare -->
+    <!-- lista delle cose da fare, con ciclo per le varie voci -->
     <ul>
-      <li></li>
+      <li v-for="(todoElem, ind) in todoList" :key="ind">
+        {{ todoElem.text }}
+      </li>
     </ul>
     <!-- form per inserire nuovi task   -->
     <form @submit="formSubmit">
